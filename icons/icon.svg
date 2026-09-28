@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="38%" r="75%">
+      <stop offset="0" stop-color="#3a0a0e"/>
+      <stop offset="0.55" stop-color="#16080a"/>
+      <stop offset="1" stop-color="#050505"/>
+    </radialGradient>
+    <radialGradient id="red" cx="40%" cy="30%" r="80%">
+      <stop offset="0" stop-color="#ff4a4f"/>
+      <stop offset="0.45" stop-color="#d4141f"/>
+      <stop offset="1" stop-color="#6e050b"/>
+    </radialGradient>
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="eye" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#d9dde3"/>
+    </linearGradient>
+    <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="8" cy="8" r="2.2" fill="#ff2a35" opacity=".18"/>
+    </pattern>
+    <clipPath id="maskClip"><circle cx="256" cy="262" r="200"/></clipPath>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <rect width="512" height="512" fill="url(#dots)"/>
+  <!-- comic burst behind -->
+  <g opacity=".22" fill="#ff2a35">
+    <path d="M256 20 L280 120 L360 40 L336 140 L450 110 L372 186 L492 214 L380 246 L256 256 Z"/>
+    <path d="M256 20 L232 120 L152 40 L176 140 L62 110 L140 186 L20 214 L132 246 L256 256 Z"/>
+  </g>
+  <!-- shadow -->
+  <ellipse cx="256" cy="478" rx="150" ry="16" fill="#000" opacity=".55"/>
+  <!-- mask -->
+  <circle cx="256" cy="262" r="206" fill="#000"/>
+  <circle cx="256" cy="262" r="200" fill="url(#red)"/>
+  <g clip-path="url(#maskClip)">
+    <!-- seam -->
+    <path d="M256 62 L256 462" stroke="#5a0308" stroke-width="5" opacity=".75"/>
+    <path d="M262 62 L262 462" stroke="#ff6a6f" stroke-width="1.5" opacity=".35"/>
+    <!-- left patch -->
+    <path d="M240 272 C226 214 150 166 56 170 L44 336 C120 344 208 326 240 298 Z" fill="#0b0b0c"/>
+    <!-- right patch -->
+    <path d="M272 272 C286 214 362 166 456 170 L468 336 C392 344 304 326 272 298 Z" fill="#0b0b0c"/>
+    <!-- eyes -->
+    <path d="M84 228 C126 206 192 226 222 274 C172 292 114 280 84 228 Z" fill="url(#eye)"/>
+    <path d="M428 228 C386 206 320 226 290 274 C340 292 398 280 428 228 Z" fill="url(#eye)"/>
+  </g>
+  <circle cx="256" cy="262" r="200" fill="none" stroke="#000" stroke-width="10"/>
+  <!-- v2: Wolverine-yellow ring -->
+  <circle cx="256" cy="262" r="214" fill="none" stroke="#000" stroke-width="22"/>
+  <circle cx="256" cy="262" r="214" fill="none" stroke="#ffc814" stroke-width="12"/>
+  <circle cx="256" cy="262" r="214" fill="none" stroke="#1f5fd6" stroke-width="12" stroke-dasharray="18 70" opacity=".9"/>
+  <!-- gloss -->
+  <path d="M100 170 C130 90 210 66 256 66 C330 66 390 100 416 160 C360 128 300 118 256 118 C200 118 150 132 100 170 Z" fill="url(#gloss)"/>
+  <circle cx="160" cy="130" r="10" fill="#fff" opacity=".7"/>
+  <!-- v2: big "2" badge -->
+  <g transform="translate(398 392) rotate(10)">
+    <circle r="96" fill="#000"/>
+    <circle r="86" fill="#ffc814"/>
+    <circle r="86" fill="url(#dots)" opacity=".6"/>
+    <path d="M-34 -26 C-34 -62 34 -66 36 -26 C38 6 -6 22 -38 52 L40 52" fill="none" stroke="#000" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M-34 -26 C-34 -62 34 -66 36 -26 C38 6 -6 22 -38 52 L40 52" fill="none" stroke="#d1121c" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M-60 -40 C-40 -76 20 -84 50 -60" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity=".55"/>
+  </g>
+</svg>

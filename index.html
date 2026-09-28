@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Deadpool Watch 2</title>
+<meta name="description" content="Deadpool Watch 2: the sequel. 13 faces, games, focus mode, weather, voice quips and more. Maximum effort.">
+<meta name="theme-color" content="#0a0a0b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="DP Watch 2">
+<meta name="application-name" content="DP Watch 2">
+<meta name="format-detection" content="telephone=no">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="64x64" href="icons/favicon-64.png">
+<link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
+<link rel="apple-touch-icon" sizes="167x167" href="icons/icon-167.png">
+<link rel="apple-touch-icon" sizes="152x152" href="icons/icon-152.png">
+<link rel="apple-touch-startup-image" href="icons/splash-1290x2796.png" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="preload" href="fonts/Bangers-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Oswald.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/v2.css">
+</head>
+<body>
+<!-- Shared SVG defs (gradients used by all faces). Not display:none so gradients resolve. -->
+<svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="bladeGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5d646e"/><stop offset=".45" stop-color="#f7f9fc"/><stop offset=".6" stop-color="#b9c1cc"/><stop offset="1" stop-color="#eef2f6"/>
+    </linearGradient>
+    <linearGradient id="clawGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6a7686"/><stop offset=".5" stop-color="#f4f8ff"/><stop offset="1" stop-color="#9fb0c6"/>
+    </linearGradient>
+    <radialGradient id="maskGrad" cx="38%" cy="28%" r="85%">
+      <stop offset="0" style="stop-color:var(--mask-hi)"/><stop offset=".5" style="stop-color:var(--mask-mid)"/><stop offset="1" style="stop-color:var(--mask-lo)"/>
+    </radialGradient>
+    <radialGradient id="redGrad" cx="38%" cy="28%" r="85%">
+      <stop offset="0" stop-color="#ff4a52"/><stop offset=".5" stop-color="#cf111b"/><stop offset="1" stop-color="#5e040a"/>
+    </radialGradient>
+    <radialGradient id="yellowGrad" cx="70%" cy="25%" r="90%">
+      <stop offset="0" stop-color="#fff07a"/><stop offset=".5" stop-color="#ffc814"/><stop offset="1" stop-color="#a86f00"/>
+    </radialGradient>
+    <linearGradient id="bezelGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5a5a62"/><stop offset=".25" stop-color="#1b1b1f"/><stop offset=".55" stop-color="#3b3b42"/><stop offset=".8" stop-color="#101012"/><stop offset="1" stop-color="#4a4a52"/>
+    </linearGradient>
+    <linearGradient id="eyeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#cfd5dd"/>
+    </linearGradient>
+    <pattern id="halftone" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="1.3" fill="#fff" opacity=".07"/>
+    </pattern>
+    <pattern id="halftoneRed" width="7" height="7" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="3.5" r="1.4" fill="#000" opacity=".18"/>
+    </pattern>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0b0"/><stop offset=".35" stop-color="#d9a83a"/><stop offset=".7" stop-color="#8a6414"/><stop offset="1" stop-color="#e8c66a"/></linearGradient>
+    <linearGradient id="roseGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6c8b0"/><stop offset=".5" stop-color="#b8735a"/><stop offset="1" stop-color="#e8a88a"/></linearGradient>
+    <linearGradient id="roseGoldGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe0cf"/><stop offset=".4" stop-color="#d9927a"/><stop offset=".75" stop-color="#9a5a46"/><stop offset="1" stop-color="#f3c1a6"/></linearGradient>
+    <linearGradient id="steelGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0f3f7"/><stop offset=".5" stop-color="#8a929c"/><stop offset="1" stop-color="#d7dde4"/></linearGradient>
+    <radialGradient id="rubyGrad" cx="35%" cy="35%" r="70%"><stop offset="0" stop-color="#ff8a9a"/><stop offset=".5" stop-color="#d1121c"/><stop offset="1" stop-color="#5e040a"/></radialGradient>
+    <radialGradient id="blueScrew" cx="35%" cy="35%" r="70%"><stop offset="0" stop-color="#8aa8ff"/><stop offset=".6" stop-color="#2b4fd6"/><stop offset="1" stop-color="#0a1a60"/></radialGradient>
+    <radialGradient id="sapphire" cx="35%" cy="25%" r="80%"><stop offset="0" stop-color="#bcd4ff" stop-opacity=".16"/><stop offset=".6" stop-color="#4a6aa0" stop-opacity=".05"/><stop offset="1" stop-color="#000" stop-opacity=".35"/></radialGradient>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="50%"><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".6"/></radialGradient>
+    <radialGradient id="creamGrad" cx="45%" cy="35%" r="75%"><stop offset="0" stop-color="#fbf1d6"/><stop offset=".7" stop-color="#e3cf9e"/><stop offset="1" stop-color="#b89a62"/></radialGradient>
+    <radialGradient id="ladyDial" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#ff5a86"/><stop offset=".55" stop-color="#b3123e"/><stop offset="1" stop-color="#4a0618"/></radialGradient>
+    <radialGradient id="niceDial" cx="40%" cy="25%" r="85%"><stop offset="0" stop-color="#fff5fa"/><stop offset=".5" stop-color="#ffd6e6"/><stop offset="1" stop-color="#b8f0dc"/></radialGradient>
+    <radialGradient id="niceMask" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#ffb3c6"/><stop offset=".6" stop-color="#ff6f96"/><stop offset="1" stop-color="#c23a62"/></radialGradient>
+    <linearGradient id="hairGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b8763a"/><stop offset=".6" stop-color="#7a4620"/><stop offset="1" stop-color="#4a2810"/></linearGradient>
+    <linearGradient id="pearlGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".3" stop-color="#f2e6ff"/><stop offset=".6" stop-color="#dff7ef"/><stop offset="1" stop-color="#ffe3ee"/></linearGradient>
+    <pattern id="perlage" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r="6" fill="none" stroke="#fff" stroke-opacity=".07"/><circle cx="0" cy="0" r="6" fill="none" stroke="#fff" stroke-opacity=".05"/><circle cx="14" cy="14" r="6" fill="none" stroke="#fff" stroke-opacity=".05"/></pattern>
+    <pattern id="carbon" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#141416"/><rect width="4" height="4" fill="#1f1f23"/><rect x="4" y="4" width="4" height="4" fill="#1f1f23"/><rect width="4" height="1" fill="#2a2a2f"/><rect x="4" y="4" width="4" height="1" fill="#2a2a2f"/></pattern>
+    <pattern id="guilloche" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2.4" fill="none" stroke="#fff" stroke-opacity=".08"/></pattern>
+    <pattern id="halftoneBrown" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r="1.2" fill="#6a4a20" opacity=".16"/></pattern>
+    <pattern id="heartsPat" width="36" height="36" patternUnits="userSpaceOnUse"><path transform="translate(18 18) scale(.7)" d="M0 4 C-6 -2 -10 -6 -6 -9 C-3 -11 -1 -9 0 -7 C1 -9 3 -11 6 -9 C10 -6 6 -2 0 4 Z" fill="#fff" opacity=".07"/></pattern>
+    <pattern id="pawPat" width="44" height="44" patternUnits="userSpaceOnUse"><g transform="translate(22 22) rotate(-20) scale(.7)" fill="#000" opacity=".14"><ellipse cx="0" cy="3" rx="7" ry="6"/><circle cx="-7" cy="-5" r="2.8"/><circle cx="-2.5" cy="-8.5" r="2.8"/><circle cx="2.5" cy="-8.5" r="2.8"/><circle cx="7" cy="-5" r="2.8"/></g></pattern>
+    <pattern id="leather" width="5" height="5" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r="1" fill="#000" opacity=".2"/></pattern>
+    <mask id="ringMask"><circle cx="200" cy="200" r="186" fill="#fff"/><circle cx="200" cy="200" r="160" fill="#000"/></mask>
+  </defs>
+</svg>
+
+
+<div id="app">
+  <canvas id="fxGl" aria-hidden="true"></canvas>
+  <canvas id="fxBg" aria-hidden="true"></canvas>
+
+  <header class="topbar">
+    <button class="brand" id="brand" aria-label="Deadpool Watch">
+      <svg class="brand-mask" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="url(#maskGrad)" stroke="#000" stroke-width="2.5"/><path d="M20 3v34" stroke="#000" stroke-width="1.2" opacity=".5"/><path d="M18.6 21 C17.5 16.5 11 14 3.6 15 L3 26 C9 27 16 25.6 18.6 23.4Z M21.4 21 C22.5 16.5 29 14 36.4 15 L37 26 C31 27 24 25.6 21.4 23.4Z" fill="#0b0b0c"/><path d="M6 18.6 C9.5 17 15 18.4 17 22 C13 23.4 8.6 22.4 6 18.6Z M34 18.6 C30.5 17 25 18.4 23 22 C27 23.4 31.4 22.4 34 18.6Z" fill="#fff"/></svg>
+      <span class="brand-text">DEADPOOL<b>WATCH</b><sup>2</sup></span>
+    </button>
+    <button class="heal-mini" id="healMini" aria-label="Healing factor">
+      <span class="heal-mini-label">HEAL</span>
+      <span class="heal-mini-bar"><i id="healMiniFill"></i></span>
+      <span class="heal-mini-val" id="healMiniVal">100%</span>
+    </button>
+    <button class="icon-btn" id="btnSettings" aria-label="Settings">
+      <svg viewBox="0 0 24 24"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm8.6 4.9-.1-2.8 2-1.6-2-3.4-2.4.8-2.3-1.5L15.3 2h-3.9l-.6 2.6-2.4 1.3-2.4-.9-2 3.4 1.9 1.7-.1 2.8-1.9 1.7 2 3.4 2.4-.9 2.4 1.4.6 2.6h3.9l.5-2.6 2.4-1.4 2.4.9 2-3.4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+    </button>
+  </header>
+
+  <main id="screens">
+    <!-- WATCH -->
+    <section class="screen active" id="scr-watch" data-group="watch">
+      <div class="face-caption"><button class="cap-box" id="faceName">CLASSIC MASK</button><span class="cap-count" id="faceCount">1/13</span></div>
+      <div class="watch-wrap">
+        <div class="watch" id="watch">
+          <div class="flipper" id="flipper">
+            <div class="side front">
+              <div class="watch-case"><div class="case-spec"></div><div class="bezel-ring" id="bezelRing"><i class="pip"></i></div></div>
+              <div class="faces-vp" id="facesVp"><div class="faces-track" id="facesTrack"></div></div>
+              <div class="watch-glass"></div><div class="glass-edge"></div>
+            </div>
+            <div class="side back" id="caseBack"></div>
+          </div>
+          <button class="crown" id="crown" aria-label="Crown"></button>
+          <i class="pusher p1"></i><i class="pusher p2"></i>
+        </div>
+      </div>
+      <div class="face-dots" id="faceDots"></div>
+      <div class="cmp-strip" id="cmpStrip"></div>
+      <div class="watch-actions">
+        <button class="btn btn-dark" id="btnQuip"><svg viewBox="0 0 24 24"><path d="M4 4h16v11H9l-5 4Z" fill="currentColor"/></svg>QUIP</button>
+        <button class="btn btn-dark btn-icon" id="btnVoice" aria-label="Toggle voice"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4Z" fill="currentColor"/><path class="wave" d="M16 8a5 5 0 0 1 0 8M18.5 5.5a8.5 8.5 0 0 1 0 13" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></button>
+        <button class="btn btn-red" id="btnWall"><svg viewBox="0 0 24 24"><path d="M12 2 9 9l-6 1 5 4-2 8 6-5 3 3 1-6 6-3-6-2Z" fill="currentColor"/></svg>4TH WALL</button>
+      </div>
+      <p class="swipe-hint" id="swipeHint">&larr; swipe for 13 faces &bull; tap the name to pick &rarr;</p>
+    </section>
+
+    <!-- CHIMICHANGA TIMER -->
+    <section class="screen" id="scr-timer" data-group="timers">
+      <nav class="subnav" data-sub="timers"></nav>
+      <h2 class="panel-title">CHIMICHANGA <span>TIMER</span></h2>
+      <div class="timer-dial" id="timerDial">
+        <svg viewBox="0 0 300 300" class="ring-svg">
+          <circle cx="150" cy="150" r="136" class="ring-track"/>
+          <circle cx="150" cy="150" r="136" class="ring-prog" id="timerRing" transform="rotate(-90 150 150)"/>
+          <g id="timerTicks"></g>
+        </svg>
+        <div class="chimi" id="chimi">
+          <svg viewBox="0 0 160 110">
+            <g class="steam"><path d="M55 30 C48 20 62 14 55 4"/><path d="M80 26 C73 16 87 10 80 0"/><path d="M105 30 C98 20 112 14 105 4"/></g>
+            <g transform="rotate(-12 80 70)">
+              <rect x="18" y="44" width="124" height="50" rx="25" id="chimiBody" fill="#f1d9a6" stroke="#3a1d06" stroke-width="3.5"/>
+              <path d="M40 46 C46 60 46 78 40 92 M62 45 C68 60 68 78 62 93 M98 45 C104 60 104 78 98 93 M120 46 C126 60 126 78 120 92" fill="none" stroke="#3a1d06" stroke-width="2" opacity=".35"/>
+              <g id="chimiGrill" opacity="0"><path d="M30 56 L130 56 M28 70 L132 70 M30 84 L130 84" stroke="#4a2306" stroke-width="4" stroke-linecap="round" opacity=".6"/></g>
+              <g id="chimiFace" opacity="0"><path d="M58 62 C52 56 68 54 74 64 C68 68 62 67 58 62Z M102 62 C108 56 92 54 86 64 C92 68 98 67 102 62Z" fill="#fff" stroke="#000" stroke-width="3"/><path d="M68 80 Q80 88 92 80" stroke="#000" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+              <path d="M142 64 C152 70 150 82 140 84" fill="#ffd54a" stroke="#3a1d06" stroke-width="2.5"/>
+            </g>
+          </svg>
+        </div>
+        <div class="timer-readout"><span id="timerTime">03:00</span><small id="timerState">READY TO NUKE</small></div>
+      </div>
+      <div class="timer-set" id="timerSet">
+        <div class="stepper"><button data-step="m-">&minus;</button><span><b id="setMin">03</b><i>MIN</i></span><button data-step="m+">+</button></div>
+        <div class="stepper"><button data-step="s-">&minus;</button><span><b id="setSec">00</b><i>SEC</i></span><button data-step="s+">+</button></div>
+      </div>
+      <div class="chips" id="timerPresets">
+        <button data-sec="60">Mini Chimi<i>1m</i></button>
+        <button data-sec="180">Classic<i>3m</i></button>
+        <button data-sec="300">Deluxe<i>5m</i></button>
+        <button data-sec="600">Family Size<i>10m</i></button>
+        <button data-sec="1200">Power Nap<i>20m</i></button>
+      </div>
+      <div class="ctrl-row">
+        <button class="btn btn-dark" id="timerReset">RESET</button>
+        <button class="btn btn-red btn-big" id="timerGo">NUKE IT</button>
+      </div>
+      <p class="hint">Pro move: when it rings, <b>shake the phone</b> to unalive the timer (motion must be enabled in Vitals).</p>
+    </section>
+
+    <!-- STOPWATCH -->
+    <section class="screen" id="scr-stopwatch" data-group="timers">
+      <nav class="subnav" data-sub="timers"></nav>
+      <h2 class="panel-title">STOP<span>WATCH</span></h2>
+      <div class="sw-dial">
+        <svg viewBox="0 0 300 300" class="ring-svg">
+          <circle cx="150" cy="150" r="136" class="ring-track"/>
+          <g id="swTicks"></g>
+          <g id="swSweep"><line x1="150" y1="150" x2="150" y2="22" stroke="#fff" stroke-width="2"/><circle cx="150" cy="26" r="6" class="accent-fill" stroke="#fff" stroke-width="2"/></g>
+          <circle cx="150" cy="150" r="7" fill="#111" class="accent-stroke" stroke-width="3"/>
+        </svg>
+        <div class="sw-readout"><span id="swTime">00:00<small>.00</small></span><em id="swLapLive">LAP 1 &nbsp; 00:00.00</em></div>
+      </div>
+      <div class="ctrl-row">
+        <button class="btn btn-dark" id="swLap" disabled>LAP</button>
+        <button class="effort-btn" id="swGo"><span>MAXIMUM<br>EFFORT</span></button>
+        <button class="btn btn-dark" id="swReset" disabled>RESET</button>
+      </div>
+      <ol class="laps" id="swLaps"></ol>
+    </section>
+
+
+    <!-- FOCUS -->
+    <section class="screen" id="scr-focus" data-group="timers">
+      <nav class="subnav" data-sub="timers"></nav>
+      <h2 class="panel-title">MAXIMUM EFFORT <span>FOCUS</span></h2>
+      <div class="focus-dial ring-host" id="focusDial"><svg viewBox="0 0 300 300" class="ring-svg"><circle cx="150" cy="150" r="136" class="ring-track"/><circle cx="150" cy="150" r="136" class="ring-prog" id="focusRing" transform="rotate(-90 150 150)"/></svg>
+        <div class="focus-core"><span class="focus-phase" id="focusPhase">FOCUS</span><b id="focusTime">25:00</b><small id="focusSub">Phone down. Stab procrastination.</small></div>
+      </div>
+      <div class="focus-dots" id="focusDots"></div>
+      <div class="ctrl-row"><button class="btn btn-dark" id="focusReset">RESET</button><button class="btn btn-red btn-big" id="focusGo">START</button><button class="btn btn-dark" id="focusSkip">SKIP</button></div>
+      <div class="panel focus-set">
+        <div class="stepper-row"><span>FOCUS</span><div class="stepper sm"><button data-f="focus-">&minus;</button><span><b id="fFocus">25</b><i>MIN</i></span><button data-f="focus+">+</button></div></div>
+        <div class="stepper-row"><span>SHORT BREAK</span><div class="stepper sm"><button data-f="short-">&minus;</button><span><b id="fShort">5</b><i>MIN</i></span><button data-f="short+">+</button></div></div>
+        <div class="stepper-row"><span>LONG BREAK</span><div class="stepper sm"><button data-f="long-">&minus;</button><span><b id="fLong">15</b><i>MIN</i></span><button data-f="long+">+</button></div></div>
+        <p class="hint center" id="focusStats">0 focus blocks today</p>
+      </div>
+    </section>
+
+    <!-- INTERVAL -->
+    <section class="screen" id="scr-interval" data-group="timers">
+      <nav class="subnav" data-sub="timers"></nav>
+      <h2 class="panel-title">INTERVAL <span>WORKOUT</span></h2>
+      <div class="iv-display" id="ivDisplay">
+        <div class="iv-phase" id="ivPhase">READY?</div>
+        <div class="iv-time" id="ivTime">00:40</div>
+        <div class="iv-round" id="ivRound">ROUND 0 / 10</div>
+        <div class="iv-bar"><i id="ivBar"></i></div>
+        <div class="iv-merc" id="ivMerc"></div>
+      </div>
+      <div class="chips" id="ivPresets">
+        <button data-p="20,10,8">Tabata<i>20/10&times;8</i></button><button data-p="40,20,10">Merc HIIT<i>40/20&times;10</i></button>
+        <button data-p="30,30,12">Chimi Burner<i>30/30&times;12</i></button><button data-p="60,0,10">EMOM<i>60&times;10</i></button><button data-p="45,15,6">Katana Drills<i>45/15&times;6</i></button>
+      </div>
+      <div class="iv-set">
+        <div class="stepper sm"><button data-iv="work-">&minus;</button><span><b id="ivWork">40</b><i>WORK s</i></span><button data-iv="work+">+</button></div>
+        <div class="stepper sm"><button data-iv="rest-">&minus;</button><span><b id="ivRest">20</b><i>REST s</i></span><button data-iv="rest+">+</button></div>
+        <div class="stepper sm"><button data-iv="rounds-">&minus;</button><span><b id="ivRounds">10</b><i>ROUNDS</i></span><button data-iv="rounds+">+</button></div>
+      </div>
+      <div class="ctrl-row"><button class="btn btn-dark" id="ivReset">RESET</button><button class="btn btn-red btn-big" id="ivGo">LET'S GO</button></div>
+      <p class="hint">5-second get-ready, beeps on the last 3 seconds, voice callouts if Quip Voice is on.</p>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <section class="screen" id="scr-countdown" data-group="timers">
+      <nav class="subnav" data-sub="timers"></nav>
+      <h2 class="panel-title">COUNTDOWN <span>TO GLORY</span></h2>
+      <div class="panel cd-add">
+        <label class="field grow"><span>EVENT</span><input type="text" id="cdName" maxlength="32" placeholder="Taco night"></label>
+        <label class="field grow"><span>WHEN</span><input type="datetime-local" id="cdWhen"></label>
+        <button class="btn btn-red" id="cdAdd">ADD</button>
+      </div>
+      <div class="chips" id="cdQuick"><button data-q="ny">New Year<i>2027</i></button><button data-q="fri">Friday<i>5 PM</i></button><button data-q="tom">Tomorrow<i>9 AM</i></button><button data-q="hour">Next hour<i>:00</i></button></div>
+      <ul class="cd-list" id="cdList"></ul>
+    </section>
+    <!-- ALARMS -->
+    <section class="screen" id="scr-alarms" data-group="timers">
+      <nav class="subnav" data-sub="timers"></nav>
+      <h2 class="panel-title">ALARMS <span>(SNOOZE IS FOR X-PEOPLE)</span></h2>
+      <div class="panel alarm-add">
+        <label class="field"><span>TIME</span><input type="time" id="alarmTime" value="07:00" step="60"></label>
+        <label class="field grow"><span>LABEL</span><input type="text" id="alarmLabel" maxlength="30" placeholder="Unalive the day"></label>
+        <label class="field chk"><span>DAILY</span><input type="checkbox" id="alarmDaily" class="switch"></label>
+        <button class="btn btn-red" id="alarmAdd">ADD</button>
+      </div>
+      <ul class="alarm-list" id="alarmList"></ul>
+      <p class="hint">Heads up: iOS only lets web apps ring while they're open on screen. Keep Deadpool Watch open (maybe on a charger) for alarms to fire. Blame Apple, not me.</p>
+      <button class="btn btn-dark btn-small" id="alarmTest">TEST THE ALARM</button>
+    </section>
+
+
+    <!-- GAMES -->
+    <section class="screen" id="scr-games" data-group="games">
+      <h2 class="panel-title">MERC <span>ARCADE</span></h2>
+      <p class="sub">Two games. Zero microtransactions. Infinite regret.</p>
+      <div class="game-card" data-game="slice">
+        <div class="gc-art gc-slice"><svg viewBox="0 0 200 120"><g transform="rotate(-18 100 60)"><rect x="46" y="42" width="108" height="40" rx="20" fill="#e0a650" stroke="#3a1d06" stroke-width="4"/><path d="M70 44 C75 56 75 70 70 80 M100 43 C105 56 105 70 100 81 M130 44 C135 56 135 70 130 80" stroke="#8a4a12" stroke-width="3" fill="none"/></g><path d="M20 108 L186 14" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M20 108 L186 14" stroke="var(--accent-hi)" stroke-width="12" stroke-linecap="round" opacity=".35"/></svg></div>
+        <div class="gc-info"><b>KATANA SLICE</b><span>Swipe to slice chimichangas. Dodge grenades. Rare tacos are worth a LOT.</span><em>BEST: <i id="bestSlice">0</i></em></div>
+        <button class="btn btn-red">PLAY</button>
+      </div>
+      <div class="game-card" data-game="bullet">
+        <div class="gc-art gc-bullet"><svg viewBox="0 0 200 120"><circle cx="150" cy="60" r="42" fill="url(#maskGrad)" stroke="#000" stroke-width="4"/><path d="M146 62 C140 48 124 44 112 48 L112 70 C126 72 140 70 146 66Z M154 62 C160 48 176 44 188 48 L188 70 C174 72 160 70 154 66Z" fill="#0a0a0b"/><g transform="translate(40 60)"><path d="M-30 0 H-6" stroke="#fff" stroke-width="3" opacity=".5"/><path d="M-50 -4 H-10 M-44 5 H-12" stroke="#fff" stroke-width="2" opacity=".3"/><rect x="-6" y="-7" width="26" height="14" rx="2" fill="#c9a24a" stroke="#5a4210" stroke-width="2"/><path d="M20 -7 Q34 0 20 7Z" fill="#b87333" stroke="#5a2e10" stroke-width="2"/></g></svg></div>
+        <div class="gc-info"><b>CATCH THE BULLET</b><span>Wait for the shot, then tap. Five rounds. Lowest average reaction time wins.</span><em>BEST: <i id="bestBullet">--</i></em></div>
+        <button class="btn btn-red">PLAY</button>
+      </div>
+      <h3 class="panel-title small">RECENT <span>GLORY</span></h3>
+      <ul class="score-list" id="scoreList"></ul>
+    </section>
+
+    <!-- MULTIVERSE -->
+    <section class="screen" id="scr-multi" data-group="world">
+      <h2 class="panel-title">MULTIVERSE <span>CLOCK</span></h2>
+      <p class="sub">Pick a timeline. Any timeline. (Please don't break them all.)</p>
+      <div class="wx-card" id="wxCard">
+        <div class="wx-main"><span class="wx-icon" id="wxIcon"></span><div><b id="wxTemp">--&deg;</b><span id="wxDesc">Weather loading...</span></div></div>
+        <div class="wx-meta"><span id="wxLoc">No location yet</span><span id="wxHiLo"></span><span id="wxSun"></span><span id="wxMoon"></span></div>
+        <div class="wx-actions"><button class="btn btn-red btn-small" id="wxGeo">USE MY LOCATION</button><button class="btn btn-dark btn-small" id="wxCity">SET CITY</button><button class="btn btn-dark btn-small" id="wxRefresh">&#8635;</button></div>
+        <small class="wx-status" id="wxStatus"></small>
+      </div>
+      <div class="tl-grid" id="tlGrid"></div>
+    </section>
+
+
+    <!-- HUB -->
+    <section class="screen" id="scr-hub" data-group="hub">
+      <h2 class="panel-title">THE <span>HUB</span></h2>
+      <div class="hub-grid" id="hubGrid"></div>
+    </section>
+    <!-- VITALS -->
+    <section class="screen" id="scr-vitals" data-group="hub">
+      <button class="back-hub" data-go="scr-hub">&larr; HUB</button>
+      <h2 class="panel-title">HEALING <span>FACTOR</span></h2>
+      <div class="heal-gauge">
+        <svg viewBox="0 0 300 300" class="ring-svg">
+          <circle cx="150" cy="150" r="128" class="ring-track thick"/>
+          <circle cx="150" cy="150" r="128" class="ring-prog thick heal-prog" id="healRing" transform="rotate(-90 150 150)"/>
+          <g id="healCells"></g>
+        </svg>
+        <div class="heal-readout"><b id="healVal">100%</b><small id="healStatus">FULLY HEALED (STILL UGLY)</small></div>
+      </div>
+      <p class="sub center" id="healSource">Checking for a battery to leech off...</p>
+      <div class="ctrl-row">
+        <button class="btn btn-dark" id="btnHit">TAKE A HIT</button>
+        <button class="btn btn-red" id="btnChimi">EAT A CHIMICHANGA</button>
+      </div>
+
+      <h3 class="panel-title small">MOTION <span>SENSORS</span></h3>
+      <div class="panel motion-panel">
+        <button class="btn btn-red wide" id="btnMotion">ENABLE MOTION (STEPS + SHAKE)</button>
+        <div class="stat-grid">
+          <div class="stat"><b id="statSteps">0</b><span>STEPS TODAY</span></div>
+          <div class="stat"><b id="statShakes">0</b><span>SHAKES</span></div>
+          <div class="stat"><b id="statQuips">0</b><span>QUIPS ENDURED</span></div>
+          <div class="stat"><b id="statWalls">0</b><span>WALLS BROKEN</span></div>
+        </div>
+        <canvas id="motionSpark" height="60"></canvas>
+        <p class="hint" id="motionHint">Shake = random quip (or unalive a ringing timer). Steps are counted while the app is open.</p>
+      </div>
+
+      <h3 class="panel-title small">EASTER <span>EGGS</span> <em id="eggCount">0/11</em></h3>
+      <ul class="egg-list" id="eggList"></ul>
+    </section>
+
+
+    <!-- HOROSCOPE -->
+    <section class="screen" id="scr-horo" data-group="hub">
+      <button class="back-hub" data-go="scr-hub">&larr; HUB</button>
+      <h2 class="panel-title">DEADPOOL <span>HOROSCOPE</span></h2>
+      <p class="sub">Scientifically inaccurate. Emotionally devastating. New every day.</p>
+      <div class="sign-grid" id="signGrid"></div>
+      <article class="horo-card" id="horoCard"></article>
+      <div class="ctrl-row"><button class="btn btn-dark" id="horoSpeak">READ IT TO ME</button></div>
+    </section>
+
+    <!-- MOOD -->
+    <section class="screen" id="scr-mood" data-group="hub">
+      <button class="back-hub" data-go="scr-hub">&larr; HUB</button>
+      <h2 class="panel-title">MOOD <span>METER</span></h2>
+      <p class="sub">How are we feeling, Nick? Be honest. I can smell lies.</p>
+      <div class="mood-row" id="moodRow"></div>
+      <div class="mood-reply" id="moodReply">Tap a face. I'll say something nice. Or at least something.</div>
+      <h3 class="panel-title small">THIS <span>WEEK</span></h3>
+      <div class="mood-chart" id="moodChart"></div>
+    </section>
+
+    <!-- CUSTOMIZE -->
+    <section class="screen" id="scr-custom" data-group="hub">
+      <button class="back-hub" data-go="scr-hub">&larr; HUB</button>
+      <h2 class="panel-title">FACE <span>CUSTOMIZER</span></h2>
+      <div class="panel settings">
+        <div class="set-row col"><span>Accent color</span><div class="swatches" id="swatches"></div></div>
+        <label class="set-row"><span>Tint the mask too<i>Recolor the mask faces with your accent</i></span><input type="checkbox" class="switch" data-set="tintMask"></label>
+        <div class="set-row col"><span>Classic Mask hands</span><div class="seg seg4" id="segHands"><button data-v="katana">Katanas</button><button data-v="claws">Claws</button><button data-v="baton">Batons</button><button data-v="chimi">Chimis</button></div></div>
+        <label class="set-row"><span>Ticking seconds<i>Off = smooth sweep, on = quartz tick</i></span><input type="checkbox" class="switch" data-set="tickSec"></label>
+        <div class="set-row col"><span>Mask face windows (left / right)</span><div class="two-sel"><select class="sel" id="selCmpL"></select><select class="sel" id="selCmpR"></select></div></div>
+        <div class="set-row col"><span>Complication chips under the watch</span><div class="three-sel"><select class="sel" data-chip="0"></select><select class="sel" data-chip="1"></select><select class="sel" data-chip="2"></select></div></div>
+      </div>
+      <div class="ctrl-row"><button class="btn btn-red" id="customPreview">PREVIEW ON WATCH</button></div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section class="screen" id="scr-ach" data-group="hub">
+      <button class="back-hub" data-go="scr-hub">&larr; HUB</button>
+      <h2 class="panel-title">ACHIEVE<span>MENTS</span></h2>
+      <div class="ach-progress"><div class="ach-bar"><i id="achBar"></i></div><b id="achCount">0 / 28</b></div>
+      <div class="ach-grid" id="achGrid"></div>
+    </section>
+    <!-- SETTINGS -->
+    <section class="screen" id="scr-settings" data-group="hub">
+      <button class="back-hub" data-go="scr-hub">&larr; HUB</button>
+      <h2 class="panel-title">SETTINGS <span>(BORING BUT NECESSARY)</span></h2>
+      <div class="panel settings">
+        <label class="set-row"><span>24-hour time<i>For the military and Europeans</i></span><input type="checkbox" class="switch" data-set="h24"></label>
+        <label class="set-row"><span>Sound effects<i>Synthesized. Zero copyrighted bangers.</i></span><input type="checkbox" class="switch" data-set="sound"></label>
+        <label class="set-row"><span>Show seconds<i>On digital readouts</i></span><input type="checkbox" class="switch" data-set="seconds"></label>
+        <label class="set-row"><span>Floating embers<i>Particles. Pretty. Slightly spicy.</i></span><input type="checkbox" class="switch" data-set="particles"></label>
+        <label class="set-row"><span>Unsolicited quips<i>I pipe up every few minutes + hourly</i></span><input type="checkbox" class="switch" data-set="autoQuips"></label>
+        <label class="set-row"><span>Keep screen awake<i>So alarms & timers can ring (uses battery)</i></span><input type="checkbox" class="switch" data-set="wake"></label>
+        <label class="set-row"><span>Tilt lighting<i>Glass glare follows your phone</i></span><input type="checkbox" class="switch" data-set="tilt"></label>
+        <label class="set-row"><span>Shader background<i>WebGL plasma + god rays (turn off to save battery)</i></span><input type="checkbox" class="switch" data-set="shader"></label>
+        <label class="set-row"><span>Temperature in &deg;C<i>Off = Fahrenheit, like a true American merc</i></span><input type="checkbox" class="switch" data-set="celsius"></label>
+        <div class="set-row col"><span>Screen transition</span><div class="seg seg3" id="segTrans"><button data-v="katana">Katana</button><button data-v="page">Comic page</button><button data-v="random">Random</button></div></div>
+        <div class="set-row col"><span>Default watch face</span><select class="sel" id="selFace"></select></div>
+      </div>
+      <h3 class="panel-title small">QUIP <span>VOICE</span></h3>
+      <div class="panel settings">
+        <label class="set-row"><span>Read quips aloud<i>Web Speech voice. Sounds like a robot doing an impression of me.</i></span><input type="checkbox" class="switch" data-set="voice"></label>
+        <div class="set-row col"><span>Voice</span><select class="sel" id="selVoice"><option value="">Auto (best English voice)</option></select></div>
+        <div class="set-row col"><span>Speed <i id="rateVal">1.05</i></span><input type="range" id="voiceRate" min="0.6" max="1.6" step="0.05" class="range"></div>
+        <div class="set-row col"><span>Pitch <i id="pitchVal">0.9</i></span><input type="range" id="voicePitch" min="0.3" max="1.8" step="0.05" class="range"></div>
+        <button class="btn btn-dark btn-small" id="voiceTest">TEST THE VOICE</button>
+      </div>
+      <div class="ctrl-row">
+        <button class="btn btn-dark" id="btnBack">&larr; BACK</button>
+        <button class="btn btn-dark" id="btnReset">RESET EVERYTHING</button>
+      </div>
+      <p class="fine">Deadpool Watch is an unofficial, non-commercial fan toy made for Nick. All art, sounds and jokes are original. Not affiliated with or endorsed by Marvel, Disney or anyone with lawyers. v2.0 &mdash; the sequel nobody asked for, everybody deserves.</p>
+    </section>
+  </main>
+
+  <nav class="dock" id="dock">
+    <button data-go="scr-watch" data-g="watch" class="active" aria-label="Watch"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="currentColor" opacity=".25"/><path d="M11.3 12.4C10.7 10 7.6 8.8 4 9.2L3.8 14c3 .5 6.2-.2 7.5-1.6ZM12.7 12.4c.6-2.4 3.7-3.6 7.3-3.2l.2 4.8c-3 .5-6.2-.2-7.5-1.6Z" fill="currentColor"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span>Watch</span></button>
+    <button data-go="scr-timer" data-g="timers" aria-label="Timers"><svg viewBox="0 0 24 24"><circle cx="12" cy="13.5" r="7.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 13.5V9M10 2.5h4M12 2.5V6M18.5 6.5l1.5-1.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Timers</span></button>
+    <button data-go="scr-games" data-g="games" aria-label="Games"><svg viewBox="0 0 24 24"><rect x="2.5" y="7" width="19" height="11" rx="5.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M7 10.5v4M5 12.5h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="15.5" cy="11.5" r="1.3" fill="currentColor"/><circle cx="18" cy="13.8" r="1.3" fill="currentColor"/></svg><span>Arcade</span></button>
+    <button data-go="scr-multi" data-g="world" aria-label="World"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="9.5" ry="4" fill="none" stroke="currentColor" stroke-width="1.6" transform="rotate(-25 12 12)"/><ellipse cx="12" cy="12" rx="9.5" ry="4" fill="none" stroke="currentColor" stroke-width="1.6" transform="rotate(35 12 12)"/><circle cx="12" cy="12" r="2.6" fill="currentColor"/></svg><span>Multiverse</span></button>
+    <button data-go="scr-hub" data-g="hub" aria-label="Hub"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="2" fill="currentColor"/></svg><span>Hub</span></button>
+  </nav>
+
+  <div id="bubbleLayer" aria-live="polite"></div>
+  <canvas id="fxTop" aria-hidden="true"></canvas>
+  <div id="blade" aria-hidden="true"></div>
+  <div id="overlayFx" aria-hidden="true"></div>
+  <div id="toast" role="status"></div>
+  <div class="ach-pop" id="achPop" hidden><div class="ach-badge" id="achPopBadge"></div><div><small>ACHIEVEMENT UNLOCKED</small><b id="achPopName"></b><span id="achPopDesc"></span></div></div>
+
+  <div class="sheet" id="facePicker" hidden><div class="sheet-card"><h3>PICK A FACE <span>(ANY FACE)</span></h3><div class="fp-grid" id="fpGrid"></div><button class="btn btn-dark btn-small" data-close>CLOSE</button></div></div>
+
+  <div id="gameLayer" hidden>
+    <canvas id="gameCanvas"></canvas>
+    <div class="game-hud"><span id="gScore">0</span><span id="gLives"></span><button id="gQuit" aria-label="Quit game">&times;</button></div>
+    <div class="game-msg" id="gMsg"></div>
+  </div>
+
+  <div id="lightLayer" hidden>
+    <div class="light-fill" id="lightFill"></div>
+    <div class="light-ui" id="lightUi">
+      <div class="seg seg5" id="lightModes"><button data-m="white">White</button><button data-m="warm">Warm</button><button data-m="red">Night red</button><button data-m="signal">DP Signal</button><button data-m="disco">Disco</button></div>
+      <input type="range" class="range" id="lightLevel" min="20" max="100" value="100">
+      <button class="btn btn-dark btn-small" id="lightClose">TURN OFF</button>
+      <small>Tip: turn your iPhone brightness all the way up. Web apps can't do it for you.</small>
+    </div>
+  </div>
+
+  <div class="modal" id="ringModal" hidden>
+    <div class="modal-card" id="ringCard">
+      <div class="modal-burst"></div>
+      <h2 id="ringTitle">WAKE UP, NICK!</h2>
+      <p id="ringSub">The day won't unalive itself.</p>
+      <div class="ring-time" id="ringTime">07:00</div>
+      <div class="ctrl-row">
+        <button class="btn btn-dark" id="ringSnooze">SNOOZE 5</button>
+        <button class="btn btn-red btn-big" id="ringDismiss">DISMISS</button>
+      </div>
+      <p class="hint center">Or shake your phone to unalive it.</p>
+    </div>
+  </div>
+</div>
+
+<script src="js/quips.js"></script>
+<script src="js/quips2.js"></script>
+<script src="js/sound.js"></script>
+<script src="js/fx.js"></script>
+<script src="js/gl.js"></script>
+<script src="js/faces.js"></script>
+<script src="js/faces2.js"></script>
+<script src="js/complications.js"></script>
+<script src="js/app.js"></script>
+<script src="js/tools2.js"></script>
+<script src="js/games.js"></script>
+</body>
+</html>

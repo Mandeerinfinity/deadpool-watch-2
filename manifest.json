@@ -1,0 +1,21 @@
+{
+  "name": "Deadpool Watch 2",
+  "short_name": "DP Watch 2",
+  "description": "The sequel: 13 watch faces, games, focus mode, weather, voice quips and way too many easter eggs. Fan-made. Maximum effort.",
+  "id": "./?app=dpw2",
+  "start_url": "./?source=pwa2",
+  "scope": "./",
+  "display": "fullscreen",
+  "display_override": ["fullscreen", "standalone"],
+  "orientation": "any",
+  "background_color": "#070708",
+  "theme_color": "#0a0a0b",
+  "categories": ["entertainment", "utilities", "lifestyle"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
